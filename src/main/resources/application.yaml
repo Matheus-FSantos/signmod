@@ -1,3 +1,29 @@
 spring:
   application:
     name: signmod
+  mail:
+    host: ${SMTP_HOST:sandbox.smtp.mailtrap.io}
+    port: ${SMTP_PORT:2525}
+    api-token: ${SMTP_TOKEN:10a09e7bad12fa204c6ea592cb9ac6dd}
+    username: ${SMTP_USERNAME:9c245b8a70879a}
+    password: ${SMTP_PASSWORD:38f1f0a2c19c74}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enabled: true
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:testdb}
+    username: ${DATABASE_USERNAME:sa}
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+logging:
+  structured:
+    format:
+      console: ecs
